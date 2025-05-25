@@ -8,11 +8,11 @@ if(isset($_POST['save_task'])){
 
     if(isset($_POST['edid'])) { 
         $edid = $_POST['edid'];
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
-$stmt->bind_param('s', $title);
-$stmt->execute();
+        $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
-    else $query = "INSERT INTO task(title) VALUES ('$title')";
+$stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+$stmt->bind_param('si', $title, $edid);
+$stmt->execute();
     $result = mysqli_query($conn, $query);
 
     if(!$result){
