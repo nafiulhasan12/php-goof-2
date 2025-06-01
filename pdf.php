@@ -22,9 +22,11 @@
 	    text-align: center;
 	}
 	</style>
-    $html .= "<p>".urldecode(
-$_GET['title'])."</p>"; 
-	<body>";
+	</head>
+    // lets us know if something goes wrong
+    global $_dompdf_show_warnings;
+    $_dompdf_show_warnings = true;
+
 
 	$html .= "<h1>PHP-Goof demo app</h1>";
 
