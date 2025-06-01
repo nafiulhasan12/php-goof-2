@@ -27,14 +27,14 @@ if(isset($_POST['save_task'])){
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
 $stmt->execute();
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+
 if(isset($_POST['edid'])) {
     $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
     $stmt->bind_param('si', $title, $edid);
     $stmt->execute();
 }
         $result = mysqli_query($conn, $query);
-        if(!$result){
+$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
             die("Query failed");
         }
         $_SESSION['message'] = 'Task removed successfully';
