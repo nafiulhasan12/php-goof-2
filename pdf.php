@@ -6,7 +6,7 @@
 
     $filename = "export.pdf";
 
-    $options = new Options();
+require('func.php');
     $options->setIsRemoteEnabled(true);
 
     $dompdf = new Dompdf($options);   
@@ -34,7 +34,7 @@
     }
 
 	$html .= "</body>";
-    // output the generated PDF to browser
+	$html .= "</html>";
 
     $dompdf->loadHtml($html);
     $dompdf->setPaper('A5', 'portrait');
