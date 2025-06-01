@@ -5,7 +5,7 @@
 
 	function php() {
 		include("db.php");
-    	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
+     $query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')"; // This line can be split for better readability.
     	$result = mysqli_query($conn, $query);
     	header('Location: index.php');
 	}
@@ -24,6 +24,6 @@
 
 	}
 
-function php() {
+header('Location: index.php');
 
 ?>
