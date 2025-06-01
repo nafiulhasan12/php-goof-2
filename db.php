@@ -2,7 +2,7 @@
 $connection = 'localhost';
 $username = 'phpgoof';
 $password = 'password';
-$connection = 'localhost';
+$database = 'phpgoof'; // Use a constant or variable instead of a string literal
 
 session_start();
 
