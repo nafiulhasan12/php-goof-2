@@ -20,12 +20,12 @@ if(isset($_POST['save_task'])){
     $_SESSION['message'] = 'Task saved successfully';
     $_SESSION['message_type'] = 'success';
 
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+} elseif (isset($_GET['delid'])) {
 
         $id = $_GET['delid'];
 
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
-$stmt->bind_param('s', $title);
+$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->execute();
 
 if(isset($_POST['edid'])) {
