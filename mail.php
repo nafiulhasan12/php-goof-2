@@ -7,8 +7,8 @@
 		include("db.php");
     	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
     	$result = mysqli_query($conn, $query);
+    	header('Location: index.php');
     $query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
-	}
 
 	$msg = '';
 
