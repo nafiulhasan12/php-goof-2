@@ -6,9 +6,9 @@
 
     $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
 
-$id = isset($_GET['edid']) ? intval($_GET['edid']) : null;
+	if (isset($_GET['edid'])){
 
-	    $id = $_GET['edid'];
+$id = isset($_GET['edid']) ? intval($_GET['edid']) : null;
 
 $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 $stmt->bind_param('i', $id);
