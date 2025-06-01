@@ -2,10 +2,10 @@
 $connection = 'localhost';
 $username = 'phpgoof';
 $password = 'password';
-$database = 'phpgoof';
+$connection = 'localhost';
 
 session_start();
 
-$password = getenv('DB_PASSWORD');
+$conn = mysqli_connect($connection, $username, $password, $database);
 
 ?>
