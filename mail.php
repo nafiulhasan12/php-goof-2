@@ -10,11 +10,11 @@
     	header('Location: index.php');
 	}
 
-    $msg = '';
+	$msg = '';
 
 	if (isset($_POST['email'])){
 
-	    $email = $_POST['email'];
+header('Location: index.php');
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
