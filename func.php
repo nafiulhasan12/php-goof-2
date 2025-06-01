@@ -6,12 +6,12 @@
 
     $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
 
-use League\CommonMark\CommonMarkConverter;
+	if (isset($_GET['edid'])){
 
 	    $id = $_GET['edid'];
 
 $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
-$stmt->bind_param('i', $id);
+$result = mysqli_query($conn, $query);
 $stmt->execute();
 $result = $stmt->get_result();
 	    $result = mysqli_query($conn, $query);
