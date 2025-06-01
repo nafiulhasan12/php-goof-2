@@ -36,8 +36,8 @@
 	$html .= "</body>";
 	$html .= "</html>";
 
-$dompdf->getFontMetrics()->getFont("gotcha", "normal") or $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")
-    $dompdf->setPaper('A5', 'portrait');
+    $dompdf->loadHtml($html);
+$dompdf->render();
 
     // lets us know if something goes wrong
     global $_dompdf_show_warnings;
