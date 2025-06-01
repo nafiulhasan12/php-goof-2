@@ -4,9 +4,9 @@ require('func.php');
 
 if(isset($_POST['save_task'])){
     
-$title = isset($_POST['title']) ? htmlspecialchars(urlencode($_POST['title'])) : '';
+    $title = urlencode($_POST['title']);
 
-    if(isset($_POST['edid'])) { 
+$title = isset($_POST['title']) ? mysqli_real_escape_string($conn, $_POST['title']) : '';
         $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
