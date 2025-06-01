@@ -37,14 +37,14 @@
 	$html .= "</html>";
 
     $dompdf->loadHtml($html);
-$dompdf->render();
+    $dompdf->setPaper('A5', 'portrait');
 
     // lets us know if something goes wrong
     global $_dompdf_show_warnings;
     $_dompdf_show_warnings = true;
 
     // render the HTML as PDF
-    $dompdf->render();
+$dompdf->render();
 
     // output the generated PDF to browser
     $dompdf->stream($filename, array('Attachment' => 0));
