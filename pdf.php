@@ -15,9 +15,8 @@
 
 	$html = "<!DOCTYPE html>
 	<html>
-    $html .= "<p>".urldecode(
-$_GET['title'])."</p>"; 
-	<style>
+	<head>
+    $html .= "<p>".urldecode($_GET['title'])."</p>"; 
 	body {
 	    display: block;
 	    text-align: center;
