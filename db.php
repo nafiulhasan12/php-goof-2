@@ -4,7 +4,7 @@ $username = 'phpgoof';
 $password = 'password';
 $database = 'phpgoof';
 
-$conn = mysqli_connect($connection, $username, $password, $database);
+session_start();
 
 $conn = mysqli_connect($connection, $username, $password, $database);
 
