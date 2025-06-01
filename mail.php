@@ -1,4 +1,4 @@
-<?php
+<?php 
 
     require('func.php');
 	use PHPMailer\PHPMailer\PHPMailer;
@@ -12,7 +12,7 @@
 
 	$msg = '';
 
-	if (isset($_POST['email'])){
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
 	    $email = $_POST['email'];
 
