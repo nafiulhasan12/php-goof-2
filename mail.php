@@ -14,7 +14,7 @@
 
 	if (isset($_POST['email'])){
 
-$msg = 'Error: invalid email address provided'; // Use a constant or variable for the message instead of duplicating it.
+	    $email = $_POST['email'];
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
@@ -24,6 +24,6 @@ $msg = 'Error: invalid email address provided'; // Use a constant or variable fo
 
 	}
 
-header('Location: index.php');
+$query = "INSERT INTO task(title) VALUES ('" . mysqli_real_escape_string($conn, '[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)') . "')";
 
 ?>
