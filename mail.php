@@ -12,7 +12,7 @@
 
 	$msg = '';
 
-	if (isset($_POST['email'])){
+if (isset($_POST['email'])) {
 
 	    $email = $_POST['email'];
 
@@ -22,7 +22,7 @@
 	        $msg = 'Error: invalid email address provided';
 	    }
 
-header('Location: index.php');
+	}
 
 header('Location: index.php');
 
