@@ -16,8 +16,9 @@
 	$html = "<!DOCTYPE html>
 	<html>
 	<head>
-    $html .= "<p>".urldecode($_GET['title'])."</p>"; 
-	body {
+	<style>
+$html .= "<h1>PHP-Goof demo app</h1>";
+$html .= "<p>".urldecode($_GET['title'])."</p>";
 	    display: block;
 	    text-align: center;
 	}
