@@ -19,9 +19,8 @@
 	<style>
 	body {
 	    display: block;
-    $html .= "<p>".urldecode(
-$_GET['title'])."</p>"; 
-	}
+	    text-align: center;
+    $html .= "<p>".urldecode($_GET['title'])."</p>"; 
 	</style>
 	</head>
 	<body>";
