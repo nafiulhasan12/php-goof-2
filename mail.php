@@ -7,12 +7,12 @@
 		include("db.php");
     	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
     	$result = mysqli_query($conn, $query);
-function php() {
+    	header('Location: index.php');
 	}
 
 	$msg = '';
 
-	if (isset($_POST['email'])){
+function php() {
 
 	    $email = $_POST['email'];
 
