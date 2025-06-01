@@ -6,7 +6,7 @@ if(isset($_POST['save_task'])){
     
     $title = urlencode($_POST['title']);
 
-if (isset($_POST['edid'])) { $edid = $_POST['edid']; $query = "UPDATE task SET title = '$title' WHERE id = '$edid'"; } else { $query = "INSERT INTO task(title) VALUES ('$title')"; }
+    if(isset($_POST['edid'])) { 
         $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
@@ -22,7 +22,12 @@ if (isset($_POST['edid'])) { $edid = $_POST['edid']; $query = "UPDATE task SET t
 
 } elseif (isset($_GET['delid'])) {
 
-        $id = $_GET['delid'];
+if(!$result){
+    die("Query failed");
+}
+
+$_SESSION['message'] = ($action == 'save') ? 'Task saved successfully' : 'Task removed successfully';
+$_SESSION['message_type'] = ($action == 'save') ? 'success' : 'warning';
 
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
