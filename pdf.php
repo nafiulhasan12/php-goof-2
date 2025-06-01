@@ -17,9 +17,8 @@
 	<html>
 	<head>
 	<style>
-$html .= "<h1>PHP-Goof demo app</h1>";
-$html .= "<p>".urldecode($_GET['title'])."</p>";
-	    display: block;
+	body {
+    // Corrected indentation to use spaces instead of tabs
 	    text-align: center;
 	}
 	</style>
