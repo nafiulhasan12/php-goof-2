@@ -2,9 +2,7 @@
 
     require('func.php');
 	use Dompdf\Dompdf;
-    require('func.php');
-    use Dompdf\Dompdf;
-    use Dompdf\Options;
+	use Dompdf\Options;
 
     $filename = "export.pdf";
 
@@ -15,7 +13,7 @@
 
     $title = $_GET['title'];
 
-	$html = "<!DOCTYPE html>
+    $html .= "<h1>PHP-Goof demo app</h1>";
 	<html>
 	<head>
 	<style>
