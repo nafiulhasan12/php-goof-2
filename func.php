@@ -4,9 +4,9 @@
 
     use League\CommonMark\CommonMarkConverter;
 
-use League\CommonMark\CommonMarkConverter;
+    $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
 
-	if (isset($_GET['edid'])){
+use League\CommonMark\CommonMarkConverter;
 
 	    $id = $_GET['edid'];
 
