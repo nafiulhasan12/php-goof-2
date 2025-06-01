@@ -5,7 +5,7 @@
 
 	function php() {
 		include("db.php");
-     $query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')"; // This line can be split for better readability.
+    	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
     	$result = mysqli_query($conn, $query);
     	header('Location: index.php');
 	}
@@ -14,7 +14,7 @@
 
 	if (isset($_POST['email'])){
 
-	    $email = $_POST['email'];
+$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
