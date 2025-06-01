@@ -17,8 +17,8 @@ $result = $stmt->get_result();
 	    $result = mysqli_query($conn, $query);
 
 	    if(mysqli_num_rows($result) == 1){
-        $result = mysqli_query($conn, $query);
-	        $title = $row['title'];
+	        $row = mysqli_fetch_array($result);
+$stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 
 	        $_SESSION['message'] = 'Edit Task';
 	        $_SESSION['message_type'] = 'info';
