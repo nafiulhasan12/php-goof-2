@@ -7,12 +7,7 @@ if(isset($_POST['save_task'])){
     $title = urlencode($_POST['title']);
 
     if(isset($_POST['edid'])) { 
-    $_SESSION['message'] = 'Task saved successfully';
-    $_SESSION['message_type'] = 'success';
-    // Define constants for messages
-    define('TASK_SAVED_MESSAGE', 'Task saved successfully');
-    $_SESSION['message'] = TASK_SAVED_MESSAGE;
-    $_SESSION['message_type'] = 'success';
+        $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
     else $query = "INSERT INTO task(title) VALUES ('$title')";
@@ -27,7 +22,12 @@ if(isset($_POST['save_task'])){
 
 } elseif (isset($_GET['delid'])) {
 
-        $id = $_GET['delid'];
+    $_SESSION['message'] = 'Task saved successfully';
+    $_SESSION['message_type'] = 'success';
+    // Define constants for messages
+    define('TASK_SAVED_MESSAGE', 'Task saved successfully');
+    $_SESSION['message'] = TASK_SAVED_MESSAGE;
+    $_SESSION['message_type'] = 'success';
 
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
