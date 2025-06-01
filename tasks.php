@@ -22,17 +22,33 @@ if(isset($_POST['save_task'])){
 
 } elseif (isset($_GET['delid'])) {
 
-if(!$result){
-    die("Query failed");
-}
-
-$_SESSION['message'] = ($action == 'save') ? 'Task saved successfully' : 'Task removed successfully';
-$_SESSION['message_type'] = ($action == 'save') ? 'success' : 'warning';
+        $id = $_GET['delid'];
 
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
 $stmt->execute();
+if(isset($_POST['save_task'])){
+    // ...
+    $_SESSION['message'] = 'Task saved successfully';
+    $_SESSION['message_type'] = 'success';
+} elseif (isset($_GET['delid'])) {
+    // ...
+    $_SESSION['message'] = 'Task removed successfully';
+    $_SESSION['message_type'] = 'warning';
+}
 
+// Define messages once
+$messages = [
+    'success' => 'Task saved successfully',
+    'warning' => 'Task removed successfully'
+];
+
+// Use messages
+$_SESSION['message'] = $messages['success'];
+$_SESSION['message_type'] = 'success';
+// and
+$_SESSION['message'] = $messages['warning'];
+$_SESSION['message_type'] = 'warning';
 if(isset($_POST['edid'])) {
     $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
     $stmt->bind_param('si', $title, $edid);
