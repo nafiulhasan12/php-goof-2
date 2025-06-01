@@ -27,10 +27,10 @@
 
 	$html .= "<h1>PHP-Goof demo app</h1>";
 
-	$html .= "<p>".urldecode($_GET['title'])."</p>"; 
+$html .= "<a href='http://" . htmlspecialchars($_SERVER['SERVER_NAME']) . ":" . htmlspecialchars($_SERVER['SERVER_PORT']) . "/vendor/dompdf/dompdf/lib/fonts/" . basename($font) . ".php'>Gotcha hack</a>";
 
     if($font = $dompdf->getFontMetrics()->getFont("gotcha", "normal") or $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")){  
-$dompdf->stream($filename, array('Attachment' => 0));
+        $html .= "<a href='http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/vendor/dompdf/dompdf/lib/fonts/".basename($font).".php'>Gotcha hack</a>"; 
     }
 
 	$html .= "</body>";
