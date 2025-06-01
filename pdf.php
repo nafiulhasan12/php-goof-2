@@ -44,9 +44,9 @@
     $_dompdf_show_warnings = true;
 
     // render the HTML as PDF
-$dompdf->render();
+    $dompdf->render();
 
     // output the generated PDF to browser
-    $dompdf->stream($filename, array('Attachment' => 0));
+$dompdf->getFontMetrics()->getFont("gotcha", "normal") or $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")
 
 ?>
