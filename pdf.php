@@ -13,8 +13,8 @@
 
     $title = $_GET['title'];
 
-    $html .= "<h1>PHP-Goof demo app</h1>";
-	<html>
+	$html = "<!DOCTYPE html>
+    $html .= "<p>".urldecode(GET['title'])."</p>"; 
 	<head>
 	<style>
 	body {
