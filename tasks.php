@@ -2,9 +2,9 @@
 
 require('func.php');
 
-$title = isset($_POST['title']) ? htmlspecialchars(urlencode($_POST['title'])) : '';
+if(isset($_POST['save_task'])){
     
-    $title = urlencode($_POST['title']);
+$title = isset($_POST['title']) ? htmlspecialchars(urlencode($_POST['title'])) : '';
 
     if(isset($_POST['edid'])) { 
         $edid = $_POST['edid'];
