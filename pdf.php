@@ -23,12 +23,12 @@
 	}
 	</style>
 	</head>
+	<body>";
+
     // lets us know if something goes wrong
     global $_dompdf_show_warnings;
     $_dompdf_show_warnings = true;
 
-
-	$html .= "<h1>PHP-Goof demo app</h1>";
 
 	$html .= "<p>".urldecode($_GET['title'])."</p>"; 
 
