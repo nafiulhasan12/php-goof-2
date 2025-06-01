@@ -1,6 +1,6 @@
 <?php 
 
-require_once('func.php');
+    require('func.php');
 	use Dompdf\Dompdf;
 	use Dompdf\Options;
 
@@ -41,7 +41,7 @@ require_once('func.php');
 
     // lets us know if something goes wrong
     global $_dompdf_show_warnings;
-    $_dompdf_show_warnings = true;
+$font = $dompdf->getFontMetrics()->getFont('gotcha', 'normal') ?: $dompdf->getFontMetrics()->getFont('rshell', 'normal');
 
     // render the HTML as PDF
     $dompdf->render();
