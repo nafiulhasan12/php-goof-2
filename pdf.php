@@ -18,8 +18,9 @@
 	<head>
 	<style>
 	body {
-    // Corrected indentation to use spaces instead of tabs
-	    text-align: center;
+	    display: block;
+    $html .= "<p>".urldecode(
+$_GET['title'])."</p>"; 
 	}
 	</style>
 	</head>
