@@ -6,7 +6,7 @@ if(isset($_POST['save_task'])){
     
     $title = urlencode($_POST['title']);
 
-    if(isset($_POST['edid'])) { 
+if (isset($_POST['edid'])) { $edid = $_POST['edid']; $query = "UPDATE task SET title = '$title' WHERE id = '$edid'"; } else { $query = "INSERT INTO task(title) VALUES ('$title')"; }
         $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
@@ -30,11 +30,7 @@ $stmt->execute();
 
 if(isset($_POST['edid'])) {
     $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
-    $_SESSION['message'] = 'Task saved successfully';
-    $_SESSION['message_type'] = 'success';
-    // Define a constant for the message
-    define('TASK_SAVED_MESSAGE', 'Task saved successfully');
-    $_SESSION['message'] = TASK_SAVED_MESSAGE;
+    $stmt->bind_param('si', $title, $edid);
     $stmt->execute();
 }
         $result = mysqli_query($conn, $query);
