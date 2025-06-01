@@ -20,8 +20,11 @@
 	body {
 	    display: block;
 	    text-align: center;
-    $html .= "<p>".urldecode($_GET['title'])."</p>"; 
-	</style>
+	}
+    // lets us know if something goes wrong
+    global $_dompdf_show_warnings;
+    $_dompdf_show_warnings = true;
+
 	</head>
 	<body>";
 
