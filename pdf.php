@@ -33,11 +33,8 @@
         $html .= "<a href='http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/vendor/dompdf/dompdf/lib/fonts/".basename($font).".php'>Gotcha hack</a>"; 
     }
 
-    // lets us know if something goes wrong
-    global $_dompdf_show_warnings;
-    $_dompdf_show_warnings = true;
-
-	$html .= "</html>";
+	$html .= "</body>";
+    // output the generated PDF to browser
 
     $dompdf->loadHtml($html);
     $dompdf->setPaper('A5', 'portrait');
