@@ -20,9 +20,9 @@ if(isset($_POST['save_task'])){
     $_SESSION['message'] = 'Task saved successfully';
     $_SESSION['message_type'] = 'success';
 
-$title = isset($_POST['title']) ? $conn->real_escape_string($_POST['title']) : '';
+} elseif (isset($_GET['delid'])) {
 
-        $id = $_GET['delid'];
+$title = isset($_POST['title']) ? mysqli_real_escape_string($conn, $_POST['title']) : '';
 
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
