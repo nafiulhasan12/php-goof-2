@@ -14,8 +14,9 @@
     $title = $_GET['title'];
 
 	$html = "<!DOCTYPE html>
-    $html .= "<p>".urldecode(GET['title'])."</p>"; 
-	<head>
+	<html>
+    $html .= "<p>".urldecode(
+$_GET['title'])."</p>"; 
 	<style>
 	body {
 	    display: block;
