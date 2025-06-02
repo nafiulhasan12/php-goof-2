@@ -14,6 +14,9 @@ $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 $stmt->bind_param('i', $id);
 $stmt->execute();
 $result = $stmt->get_result();
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$result = $stmt->get_result();
 	    $result = mysqli_query($conn, $query);
 
 	    if(mysqli_num_rows($result) == 1){
