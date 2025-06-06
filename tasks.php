@@ -27,6 +27,8 @@ if(isset($_POST['save_task'])){
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
 $stmt->execute();
+$stmt->bind_param('s', $title);
+$stmt->execute();
 
 if(isset($_POST['edid'])) {
     $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
