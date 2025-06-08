@@ -1,6 +1,7 @@
 <?php 
 
-    require('func.php');
+require_once('func.php');
+include_once('db.php');
 	use PHPMailer\PHPMailer\PHPMailer;
 
 	function php() {
