@@ -13,7 +13,7 @@ if(isset($_POST['save_task'])){
     else $query = "INSERT INTO task(title) VALUES ('$title')";
     $result = mysqli_query($conn, $query);
 
-    if(!$result){
+if (isset($_POST['edid'])) {
         die("Query failed");
     }
     
