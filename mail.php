@@ -1,11 +1,10 @@
 <?php 
 
-require_once('func.php');
-include_once('db.php');
+    require('func.php');
 	use PHPMailer\PHPMailer\PHPMailer;
 
 	function php() {
-		include("db.php");
+include_once("db.php");
     	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
     	$result = mysqli_query($conn, $query);
     	header('Location: index.php');
