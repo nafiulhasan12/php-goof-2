@@ -1,6 +1,6 @@
 <?php 
 
-require_once('func.php');
+    require('func.php');
 	use Dompdf\Dompdf;
 	use Dompdf\Options;
 
