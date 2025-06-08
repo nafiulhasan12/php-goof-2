@@ -16,14 +16,9 @@
 
 	    $email = $_POST['email'];
 
-function php() {
-	include("db.php");
-	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
-	$result = mysqli_query($conn, $query);
-	header('Location: index.php');
-}
+	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
-	    } else {
+if (isset($_POST['email'])) {
 	        $msg = 'Error: invalid email address provided';
 	    }
 
