@@ -20,9 +20,9 @@
 	body {
 	    display: block;
 	    text-align: center;
-    $html .= "<p>".urldecode(GET['title'])."</p>"; // Ensure no tab characters are used
+	}
 	</style>
-	</head>
+    // Corrected indentation to use spaces instead of tabs
 	<body>";
 
 	$html .= "<h1>PHP-Goof demo app</h1>";
