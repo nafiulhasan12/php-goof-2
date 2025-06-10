@@ -6,8 +6,8 @@ if(isset($_POST['save_task'])){
     
     $title = urlencode($_POST['title']);
 
+    if(isset($_POST['edid'])) { 
 $title = mysqli_real_escape_string($conn, $_POST['title']);
-        $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
     else $query = "INSERT INTO task(title) VALUES ('$title')";
