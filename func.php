@@ -8,13 +8,13 @@
 
 	if (isset($_GET['edid'])){
 
-	    $id = $_GET['edid'];
+$_SESSION['message'] = 'Edit Task'; // Consider defining this string as a constant or variable to avoid duplication.
 
 $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 $stmt->bind_param('i', $id);
 $stmt->execute();
 $result = $stmt->get_result();
-$result = mysqli_query($conn, $query);
+	    $result = mysqli_query($conn, $query);
 
 	    if(mysqli_num_rows($result) == 1){
 	        $row = mysqli_fetch_array($result);
