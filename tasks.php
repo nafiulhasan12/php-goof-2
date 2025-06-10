@@ -17,8 +17,8 @@ if(isset($_POST['save_task'])){
         die("Query failed");
     }
     
-$title = $conn->real_escape_string($_POST['title']);
-    $_SESSION['message_type'] = 'success';
+    $_SESSION['message'] = 'Task saved successfully';
+$title = $conn->real_escape_string(urlencode($_POST['title']));
 
 } elseif (isset($_GET['delid'])) {
 
