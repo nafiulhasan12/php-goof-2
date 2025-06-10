@@ -16,8 +16,8 @@
 
 	    $email = $_POST['email'];
 
-    header('Location: index.php');
-	        $msg = 'email valid';
+	    if (PHPMailer::validateAddress($email)) {
+header('Location: index.php');
 	    } else {
 	        $msg = 'Error: invalid email address provided';
 	    }
