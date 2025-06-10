@@ -2,7 +2,7 @@
 
 require('func.php');
 
-if(isset($_POST['save_task'])){
+if (isset($_POST['save_task'])) {
     
     $title = urlencode($_POST['title']);
 
@@ -13,7 +13,7 @@ if(isset($_POST['save_task'])){
     else $query = "INSERT INTO task(title) VALUES ('$title')";
     $result = mysqli_query($conn, $query);
 
-if (isset($_POST['edid'])) {
+    if(!$result){
         die("Query failed");
     }
     
