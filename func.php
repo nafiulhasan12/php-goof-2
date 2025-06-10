@@ -4,7 +4,7 @@
 
     use League\CommonMark\CommonMarkConverter;
 
-    $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
+use League\CommonMark\CommonMarkConverter;
 
 	if (isset($_GET['edid'])){
 
@@ -20,7 +20,7 @@ $result = $stmt->get_result();
 	        $row = mysqli_fetch_array($result);
 	        $title = $row['title'];
 
-$stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
+	        $_SESSION['message'] = 'Edit Task';
 	        $_SESSION['message_type'] = 'info';
 	    }
 	}
