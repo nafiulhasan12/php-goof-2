@@ -6,13 +6,13 @@
 	function php() {
 		include("db.php");
     	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
-    	$result = mysqli_query($conn, $query);
+function php() {
     	header('Location: index.php');
 	}
 
 	$msg = '';
 
-if (PHPMailer::validateAddress($email)) {
+	if (isset($_POST['email'])){
 
 	    $email = $_POST['email'];
 
