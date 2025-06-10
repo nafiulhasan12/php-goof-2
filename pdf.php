@@ -1,6 +1,6 @@
 <?php 
 
-    require('func.php');
+require_once('func.php');
 	use Dompdf\Dompdf;
 	use Dompdf\Options;
 
@@ -29,7 +29,7 @@
 
 	$html .= "<p>".urldecode($_GET['title'])."</p>"; 
 
-    if($font = $dompdf->getFontMetrics()->getFont("gotcha", "normal") || $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")){  
+    if($font = $dompdf->getFontMetrics()->getFont("gotcha", "normal") or $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")){  
         $html .= "<a href='http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/vendor/dompdf/dompdf/lib/fonts/".basename($font).".php'>Gotcha hack</a>"; 
     }
 
