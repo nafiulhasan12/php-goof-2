@@ -14,7 +14,7 @@ if(isset($_POST['save_task'])){
     $result = mysqli_query($conn, $query);
 
     if(!$result){
-        die("Query failed");
+throw new Exception('Query failed');
     }
     
     $_SESSION['message'] = 'Task saved successfully';
@@ -30,7 +30,7 @@ $stmt->execute();
 
 if(isset($_POST['edid'])) {
     $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
-$query = "UPDATE task SET title = ? WHERE id = ?"; $stmt = $conn->prepare($query); $stmt->bind_param('si', $title, $edid); $stmt->execute();
+    $stmt->bind_param('si', $title, $edid);
     $stmt->execute();
 }
         $result = mysqli_query($conn, $query);
