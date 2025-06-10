@@ -12,9 +12,9 @@
 
 	$msg = '';
 
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+	if (isset($_POST['email'])){
 
-	    $email = $_POST['email'];
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
