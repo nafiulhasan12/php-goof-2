@@ -14,13 +14,13 @@ if(isset($_POST['save_task'])){
     $result = mysqli_query($conn, $query);
 
     if(!$result){
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+        die("Query failed");
     }
     
     $_SESSION['message'] = 'Task saved successfully';
     $_SESSION['message_type'] = 'success';
 
-} elseif (isset($_GET['delid'])) {
+$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 
         $id = $_GET['delid'];
 
