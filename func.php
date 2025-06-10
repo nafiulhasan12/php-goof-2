@@ -1,13 +1,12 @@
 <?php 
     require __DIR__.'/vendor/autoload.php';
-require __DIR__.'/vendor/autoload.php';
-include("db.php");
+	include("db.php");
 
     use League\CommonMark\CommonMarkConverter;
 
     $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
 
-	if (isset($_GET['edid'])){
+use spaces instead of tab characters for indentation
 
 	    $id = $_GET['edid'];
 
