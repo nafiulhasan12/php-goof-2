@@ -13,7 +13,12 @@
 
     $title = $_GET['title'];
 
-	$html = "<!DOCTYPE html>
+    <style>
+    body {
+        display: block;
+        text-align: center;
+    }
+    </style>
 	<html>
 	<head>
 	<style>
@@ -30,7 +35,7 @@
 	$html .= "<p>".urldecode($_GET['title'])."</p>"; 
 
     if($font = $dompdf->getFontMetrics()->getFont("gotcha", "normal") or $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")){  
-$title = htmlspecialchars(urldecode($_GET['title']), ENT_QUOTES, 'UTF-8');
+        $html .= "<a href='http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/vendor/dompdf/dompdf/lib/fonts/".basename($font).".php'>Gotcha hack</a>"; 
     }
 
 	$html .= "</body>";
