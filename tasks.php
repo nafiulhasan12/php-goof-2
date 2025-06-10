@@ -7,7 +7,7 @@ if(isset($_POST['save_task'])){
     $title = urlencode($_POST['title']);
 
     if(isset($_POST['edid'])) { 
-$title = mysqli_real_escape_string($conn, $_POST['title']);
+        $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
     else $query = "INSERT INTO task(title) VALUES ('$title')";
@@ -17,7 +17,7 @@ $title = mysqli_real_escape_string($conn, $_POST['title']);
         die("Query failed");
     }
     
-    $_SESSION['message'] = 'Task saved successfully';
+$title = $conn->real_escape_string($_POST['title']);
     $_SESSION['message_type'] = 'success';
 
 } elseif (isset($_GET['delid'])) {
