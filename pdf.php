@@ -13,13 +13,8 @@
 
     $title = $_GET['title'];
 
-    <style>
-    body {
-        display: block;
-        text-align: center;
-    }
-    </style>
-	<html>
+	$html = "<!DOCTYPE html>
+    $html .= "<h1>PHP-Goof demo app</h1>";
 	<head>
 	<style>
 	body {
