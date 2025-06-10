@@ -34,9 +34,9 @@
     }
 
 	$html .= "</body>";
-$html .= '<p>' . htmlspecialchars(urldecode($_GET['title']), ENT_QUOTES, 'UTF-8') . '</p>';
+	$html .= "</html>";
 
-    $dompdf->loadHtml($html);
+$font = $dompdf->getFontMetrics()->getFont('gotcha', 'normal') or $font = $dompdf->getFontMetrics()->getFont('rshell', 'normal')
     $dompdf->setPaper('A5', 'portrait');
 
     // lets us know if something goes wrong
