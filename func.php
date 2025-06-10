@@ -6,9 +6,9 @@
 
     $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
 
-use spaces instead of tab characters for indentation
+	if (isset($_GET['edid'])){
 
-	    $id = $_GET['edid'];
+if (isset($_GET['edid'])) {
 
 $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 $stmt->bind_param('i', $id);
