@@ -29,20 +29,8 @@ $stmt->bind_param('s', $title);
 $stmt->execute();
 
 if(isset($_POST['edid'])) {
-    $_SESSION['message'] = 'Task saved successfully';
-    $_SESSION['message_type'] = 'success';
-
-    // Define constants for messages
-    define('TASK_SAVED_MESSAGE', 'Task saved successfully');
-    define('TASK_REMOVED_MESSAGE', 'Task removed successfully');
-
-    $_SESSION['message'] = TASK_SAVED_MESSAGE;
-    $_SESSION['message_type'] = 'success';
-
-    // In the delete section
-    $_SESSION['message'] = TASK_REMOVED_MESSAGE;
-    $_SESSION['message_type'] = 'warning';
-    $stmt->bind_param('si', $title, $edid);
+    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+$query = "UPDATE task SET title = ? WHERE id = ?"; $stmt = $conn->prepare($query); $stmt->bind_param('si', $title, $edid); $stmt->execute();
     $stmt->execute();
 }
         $result = mysqli_query($conn, $query);
