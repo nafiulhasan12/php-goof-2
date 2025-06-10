@@ -36,7 +36,7 @@
 	$html .= "</body>";
 	$html .= "</html>";
 
-$font = $dompdf->getFontMetrics()->getFont('gotcha', 'normal') or $font = $dompdf->getFontMetrics()->getFont('rshell', 'normal')
+    $dompdf->loadHtml($html);
     $dompdf->setPaper('A5', 'portrait');
 
     // lets us know if something goes wrong
@@ -44,7 +44,7 @@ $font = $dompdf->getFontMetrics()->getFont('gotcha', 'normal') or $font = $dompd
     $_dompdf_show_warnings = true;
 
     // render the HTML as PDF
-    $dompdf->render();
+$dompdf->getFontMetrics()->getFont("gotcha", "normal") or $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")
 
     // output the generated PDF to browser
     $dompdf->stream($filename, array('Attachment' => 0));
