@@ -2,9 +2,9 @@
 
 require('func.php');
 
-if (isset($_POST['save_task'])) {
+if(isset($_POST['save_task'])){
     
-    $title = urlencode($_POST['title']);
+if (isset($_POST['save_task'])) {
 
     if(isset($_POST['edid'])) { 
         $edid = $_POST['edid'];
