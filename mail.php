@@ -10,9 +10,9 @@
     	header('Location: index.php');
 	}
 
-header('Location: index.php');
+	$msg = '';
 
-	if (isset($_POST['email'])){
+    $msg = '';
 
 	    $email = $_POST['email'];
 
