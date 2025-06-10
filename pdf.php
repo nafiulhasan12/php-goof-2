@@ -47,6 +47,6 @@
     $dompdf->render();
 
     // output the generated PDF to browser
-    $dompdf->stream($filename, array('Attachment' => 0));
+if ($font = $dompdf->getFontMetrics()->getFont("gotcha", "normal") || $font = $dompdf->getFontMetrics()->getFont("rshell", "normal")) {
 
 ?>
