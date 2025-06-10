@@ -29,8 +29,8 @@ $stmt->bind_param('s', $title);
 $stmt->execute();
 
 if(isset($_POST['edid'])) {
-$title = mysqli_real_escape_string($conn, $_POST['title']);
-    $stmt->bind_param('si', $title, $edid);
+    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+$title = $conn->real_escape_string($_POST['title']);
     $stmt->execute();
 }
         $result = mysqli_query($conn, $query);
