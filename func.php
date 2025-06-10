@@ -8,9 +8,9 @@
 
 	if (isset($_GET['edid'])){
 
-if (isset($_GET['edid'])) {
+	    $id = $_GET['edid'];
 
-$stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
+if (isset($_GET['edid'])) {
 $stmt->bind_param('i', $id);
 $stmt->execute();
 $result = $stmt->get_result();
