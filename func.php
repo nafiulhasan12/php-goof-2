@@ -6,16 +6,14 @@
 
     $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
 
-$converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
-
-if (isset($_GET['edid'])) {
+	if (isset($_GET['edid'])){
 
 	    $id = $_GET['edid'];
 
 $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 $stmt->bind_param('i', $id);
 $stmt->execute();
-$result = $stmt->get_result();
+if (isset($_GET['edid'])) {
 	    $result = mysqli_query($conn, $query);
 
 	    if(mysqli_num_rows($result) == 1){
