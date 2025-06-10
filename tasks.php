@@ -6,8 +6,8 @@ if(isset($_POST['save_task'])){
     
     $title = urlencode($_POST['title']);
 
-if (isset($_POST['edid'])) { $edid = $_POST['edid']; $query = "UPDATE task SET title = '$title' WHERE id = '$edid'"; } else { $query = "INSERT INTO task(title) VALUES ('$title')"; }
-        $edid = $_POST['edid'];
+    if(isset($_POST['edid'])) { 
+$_SESSION['message'] = $_SESSION['message_type'] === 'success' ? 'Task saved successfully' : 'Task removed successfully';
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
     else $query = "INSERT INTO task(title) VALUES ('$title')";
