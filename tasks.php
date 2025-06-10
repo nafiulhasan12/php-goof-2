@@ -24,7 +24,9 @@ if(isset($_POST['save_task'])){
 
         $id = $_GET['delid'];
 
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+$stmt = $mysqli->prepare("INSERT INTO test(id, label) VALUES (?, ?)");
+$stmt->bind_param('is', $id, $label);
+$stmt->execute();
 $stmt->bind_param('s', $title);
 $stmt->execute();
 
