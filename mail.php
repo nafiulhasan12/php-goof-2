@@ -14,7 +14,7 @@
 
 	if (isset($_POST['email'])){
 
-	    $email = $_POST['email'];
+$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
@@ -24,6 +24,6 @@
 
 	}
 
-function php() {
+header('Location: index.php');
 
 ?>
