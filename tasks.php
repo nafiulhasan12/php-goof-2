@@ -29,8 +29,9 @@ $stmt->bind_param('s', $title);
 $stmt->execute();
 
 if(isset($_POST['edid'])) {
-$_SESSION['message'] = 'TASK_SAVED_SUCCESSFULLY'; // Define this constant elsewhere in the code
-    $stmt->bind_param('si', $title, $edid);
+    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+    $_SESSION['message'] = 'Task removed successfully';
+    $_SESSION['message_type'] = 'warning';
     $stmt->execute();
 }
         $result = mysqli_query($conn, $query);
