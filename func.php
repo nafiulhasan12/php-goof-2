@@ -8,7 +8,7 @@
 
 	if (isset($_GET['edid'])){
 
-$id = isset($_GET['edid']) ? intval($_GET['edid']) : null;
+	    $id = $_GET['edid'];
 
 $stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
 $stmt->bind_param('i', $id);
@@ -17,7 +17,7 @@ $result = $stmt->get_result();
 	    $result = mysqli_query($conn, $query);
 
 	    if(mysqli_num_rows($result) == 1){
-	        $row = mysqli_fetch_array($result);
+$id = isset($_GET['edid']) ? intval($_GET['edid']) : null;
 	        $title = $row['title'];
 
 	        $_SESSION['message'] = 'Edit Task';
