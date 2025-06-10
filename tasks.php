@@ -2,9 +2,9 @@
 
 require('func.php');
 
-$title = mysqli_real_escape_string($conn, $_POST['title']);
+if(isset($_POST['save_task'])){
     
-    $title = urlencode($_POST['title']);
+$title = mysqli_real_escape_string($conn, $_POST['title']);
 
     if(isset($_POST['edid'])) { 
         $edid = $_POST['edid'];
