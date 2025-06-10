@@ -12,11 +12,11 @@
 
 	$msg = '';
 
-function php() {
+	if (isset($_POST['email'])){
 
 	    $email = $_POST['email'];
 
-	    if (PHPMailer::validateAddress($email)) {
+function php() {
 	        $msg = 'email valid';
 	    } else {
 	        $msg = 'Error: invalid email address provided';
