@@ -18,8 +18,8 @@
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
+	    } else {
 header('Location: index.php');
-	        $msg = 'Error: invalid email address provided';
 	    }
 
 	}
