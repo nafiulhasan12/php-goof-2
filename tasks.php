@@ -27,21 +27,21 @@ if(isset($_POST['save_task'])){
 $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
 $stmt->bind_param('s', $title);
 $stmt->execute();
-$_SESSION['message'] = 'Task saved successfully';
-$_SESSION['message_type'] = 'success';
 
-// Define messages once
-$messageSaved = 'Task saved successfully';
-$messageRemoved = 'Task removed successfully';
-
-$_SESSION['message'] = $messageSaved;
-$_SESSION['message_type'] = 'success';
-
-// For removal
-$_SESSION['message'] = $messageRemoved;
-$_SESSION['message_type'] = 'warning';
 if(isset($_POST['edid'])) {
-    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+    $_SESSION['message'] = 'Task saved successfully';
+    $_SESSION['message_type'] = 'success';
+
+    // Define constants for messages
+    define('TASK_SAVED_MESSAGE', 'Task saved successfully');
+    define('TASK_REMOVED_MESSAGE', 'Task removed successfully');
+
+    $_SESSION['message'] = TASK_SAVED_MESSAGE;
+    $_SESSION['message_type'] = 'success';
+
+    // In the delete section
+    $_SESSION['message'] = TASK_REMOVED_MESSAGE;
+    $_SESSION['message_type'] = 'warning';
     $stmt->bind_param('si', $title, $edid);
     $stmt->execute();
 }
