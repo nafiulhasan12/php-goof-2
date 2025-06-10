@@ -3,14 +3,14 @@
     require('func.php');
 	use PHPMailer\PHPMailer\PHPMailer;
 
-	function php() {
 <?php 
 
     require('func.php');
 	use PHPMailer\PHPMailer\PHPMailer;
 
-	function php() {
-		include_once("db.php");
+	function php()
+	{
+		include("db.php");
     	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
     	$result = mysqli_query($conn, $query);
     	header('Location: index.php');
@@ -33,6 +33,7 @@
 header('Location: index.php');
 
 ?>
+		include("db.php");
     	$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
     	$result = mysqli_query($conn, $query);
     	header('Location: index.php');
