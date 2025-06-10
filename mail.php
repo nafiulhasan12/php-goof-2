@@ -20,9 +20,9 @@
 	        $msg = 'email valid';
 	    } else {
 	        $msg = 'Error: invalid email address provided';
-header('Location: index.php');
+	    }
 
-	}
+header('Location: index.php');
 
 header('Location: index.php');
 
