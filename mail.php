@@ -1,7 +1,7 @@
 <?php 
 
     require('func.php');
-	use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\PHPMailer;
 
 	function php() {
 		include("db.php");
@@ -14,7 +14,7 @@
 
 	if (isset($_POST['email'])){
 
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+	    $email = $_POST['email'];
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
