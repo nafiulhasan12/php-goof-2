@@ -14,7 +14,7 @@
 
 	if (isset($_POST['email'])){
 
-$query = "INSERT INTO task(title) VALUES ('[PHPMailer exploit](javascript&amp;colon;alert%28&#039;Gotcha&#039;%29)')";
+$msg = 'Error: invalid email address provided';
 
 	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
