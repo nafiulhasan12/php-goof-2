@@ -4,9 +4,9 @@ require('func.php');
 
 if(isset($_POST['save_task'])){
     
-if (isset($_POST['save_task'])) {
+    $title = urlencode($_POST['title']);
 
-    if(isset($_POST['edid'])) { 
+if (isset($_POST['save_task'])) {
         $edid = $_POST['edid'];
         $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
     }
