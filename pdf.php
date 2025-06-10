@@ -18,9 +18,9 @@
 	<head>
 	<style>
 	body {
-    $html .= "<h1>PHP-Goof demo app</h1>";
+	    display: block;
 	    text-align: center;
-	}
+    $html .= "<p>".urldecode(GET['title'])."</p>"; // Ensure no tab characters are used
 	</style>
 	</head>
 	<body>";
