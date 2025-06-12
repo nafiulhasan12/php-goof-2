@@ -1,4 +1,4 @@
-<?php 
+$html .= "<p>".htmlspecialchars(urldecode($_GET['title']), ENT_QUOTES, 'UTF-8')."</p>";
 
     require('func.php');
 	use Dompdf\Dompdf;
