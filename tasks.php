@@ -24,7 +24,27 @@ if(isset($_POST['save_task'])){
 
         $id = $_GET['delid'];
 
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+<?php
+require('func.php');
+
+if(isset($_POST['save_task'])){
+    $title = $_POST['title'];
+
+    if(isset($_POST['edid'])) {
+        $edid = (int)$_POST['edid'];
+        $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+        $stmt->bind_param('si', $title, $edid);
+    } else {
+        $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+        $stmt->bind_param('s', $title);
+    }
+    $stmt->execute() or die("Query failed");
+
+    $_SESSION['message'] = 'Task saved successfully';
+    $_SESSION['message_type'] = 'success';
+} elseif (isset($_GET['delid'])) {
+    // ...
+}
 $stmt->bind_param('s', $title);
 $stmt->execute();
 
