@@ -1,8 +1,10 @@
 <?php
 
-require_once 'path/to/file.php';
+require('func.php');
 
-if(isset($_POST['save_task'])){
+if (condition) {
+    // code
+}
     
     $title = urlencode($_POST['title']);
 
