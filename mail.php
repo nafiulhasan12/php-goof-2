@@ -16,8 +16,7 @@
 
 	    $email = $_POST['email'];
 
-if (PHPMailer::validateAddress($email))
-{
+	    if (PHPMailer::validateAddress($email)) {
 	        $msg = 'email valid';
 	    } else {
 	        $msg = 'Error: invalid email address provided';
