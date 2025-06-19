@@ -1,33 +1,4 @@
-<?php
-require('func.php');
-use PHPMailer\PHPMailer\PHPMailer;
-
-function php() {
-    include("db.php");
-    // Use a prepared statement to safely insert the title
-    $stmt = mysqli_prepare($conn, "INSERT INTO task(title) VALUES (?)");
-    if (!$stmt) {
-        // Handle prepare error
-        error_log('Prepare failed: ' . mysqli_error($conn));
-        header('HTTP/1.1 500 Internal Server Error');
-        exit;
-    }
-
-    // Define the title (could be user input in real use case)
-    $title = "[PHPMailer exploit](javascript:alert('Gotcha'))";
-    mysqli_stmt_bind_param($stmt, 's', $title);
-    if (!mysqli_stmt_execute($stmt)) {
-        // Handle execution error
-        error_log('Execute failed: ' . mysqli_stmt_error($stmt));
-        header('HTTP/1.1 500 Internal Server Error');
-        exit;
-    }
-
-    mysqli_stmt_close($stmt);
-    header('Location: index.php');
-    exit;
-}
-
+<?php 
 
     require('func.php');
 	use PHPMailer\PHPMailer\PHPMailer;
