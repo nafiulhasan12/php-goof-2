@@ -12,7 +12,8 @@
     $dompdf = new Dompdf($options);   
 
     $title = $_GET['title'];
-
+$safeTitle = htmlspecialchars(urldecode($_GET['title']), ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8');
+$html .= "<p>" . $safeTitle . "</p>";
 	$html = "<!DOCTYPE html>
 	<html>
 	<head>
