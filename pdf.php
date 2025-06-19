@@ -1,4 +1,11 @@
-<?php 
+Replace the vulnerable line that appends the raw input with a properly escaped version. For example:
+
+// Before:
+// $html .= "<p>".urldecode($_GET['title'])."</p>";
+
+// After:
+$safeTitle = htmlspecialchars(urldecode($_GET['title'] ?? ''), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$html .= "<p>" . $safeTitle . "</p>";
 
     require('func.php');
 	use Dompdf\Dompdf;
