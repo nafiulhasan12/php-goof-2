@@ -24,7 +24,25 @@ if(isset($_POST['save_task'])){
 
         $id = $_GET['delid'];
 
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+<?php
+// … existing code above …
+if(isset($_POST['save_task'])){
+    $title = $_POST['title'];
+    if(isset($_POST['edid'])) {
+        $edid = (int)$_POST['edid'];
+        $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+        $stmt->bind_param('si', $title, $edid);
+        $stmt->execute();
+    } else {
+        $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+        $stmt->bind_param('s', $title);
+        $stmt->execute();
+    }
+    // remove mysqli_query call for this branch
+    $_SESSION['message'] = 'Task saved successfully';
+    $_SESSION['message_type'] = 'success';
+}
+// … rest of code …
 $stmt->bind_param('s', $title);
 $stmt->execute();
 
