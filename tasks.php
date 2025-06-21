@@ -24,7 +24,17 @@ if(isset($_POST['save_task'])){
 
         $id = $_GET['delid'];
 
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+// Replace manual query construction with prepared statements
+if(isset($_POST['edid'])) {
+    $edid = (int)$_POST['edid'];
+    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+    $stmt->bind_param('si', $_POST['title'], $edid);
+    $stmt->execute();
+} else {
+    $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+    $stmt->bind_param('s', $_POST['title']);
+    $stmt->execute();
+}
 $stmt->bind_param('s', $title);
 $stmt->execute();
 
