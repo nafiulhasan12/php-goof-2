@@ -1,6 +1,9 @@
 <?php 
 
-    require('func.php');
+<?php 
+
+require_once('func.php');
+use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\PHPMailer;
 
 	function php() {
