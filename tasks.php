@@ -8,9 +8,27 @@ if(isset($_POST['save_task'])){
 
     if(isset($_POST['edid'])) { 
         $edid = $_POST['edid'];
-        $query = "UPDATE task SET title = '$title' WHERE id = '$edid'";
+if(isset($_POST['edid'])) {
+    $edid = filter_input(INPUT_POST, 'edid', FILTER_SANITIZE_NUMBER_INT);
+    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");$stmt->bind_param('si', $title, $edid);$result = $stmt->execute();
+} else {
+    $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");$stmt->bind_param('s', $title);$result = $stmt->execute();
+}
     }
-    else $query = "INSERT INTO task(title) VALUES ('$title')";
+if(isset($_POST['edid'])) {
+    $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+    $stmt->bind_param('si', $title, filter_input(INPUT_POST, 'edid', FILTER_SANITIZE_NUMBER_INT));
+    $result = $stmt->execute();
+}
+    if(isset($_POST['edid'])) {
+        $edid = filter_input(INPUT_POST, 'edid', FILTER_SANITIZE_NUMBER_INT);
+        $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+        $stmt->bind_param('si', $title, $edid);
+    } else {
+        $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+        $stmt->bind_param('s', $title);
+    }
+    $result = $stmt->execute();
     $result = mysqli_query($conn, $query);
 
     if(!$result){
@@ -24,7 +42,14 @@ if(isset($_POST['save_task'])){
 
         $id = $_GET['delid'];
 
-$stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)");
+        $edid = filter_input(INPUT_POST, 'edid', FILTER_SANITIZE_NUMBER_INT);
+        $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+        $stmt->bind_param('si', $title, $edid);
+        $result = $stmt->execute();
+    if($edid){
+        $stmt = $conn->prepare("UPDATE task SET title = ? WHERE id = ?");
+        $stmt->bind_param('si',$title,$edid);
+    }else{ $stmt = $conn->prepare("INSERT INTO task(title) VALUES (?)"); $stmt->bind_param('s',$title); }$result = $stmt->execute();
 $stmt->bind_param('s', $title);
 $stmt->execute();
 
