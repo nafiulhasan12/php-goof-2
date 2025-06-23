@@ -1,6 +1,6 @@
 <?php 
     require __DIR__.'/vendor/autoload.php';
-	include("db.php");
+include_once("db.php");
 
     use League\CommonMark\CommonMarkConverter;
 
