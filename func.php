@@ -10,7 +10,7 @@
 
 	    $id = $_GET['edid'];
 
-$stmt = $conn->prepare('SELECT * FROM task WHERE id = ?');
+$result = $stmt->get_result();
 $stmt->bind_param('i', $id);
 $stmt->execute();
 $result = $stmt->get_result();
